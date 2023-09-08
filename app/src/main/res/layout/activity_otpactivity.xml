@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTPActivity">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="189dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/mobile_auth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/phoneText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="sans-serif-medium"
+        android:padding="2sp"
+        android:text=" "
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Enter the OTP to verify your phone number"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText">
+
+    </TextView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.239">
+
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="405dp">
+
+            <com.mukeshsolanki.OtpView
+                android:id="@+id/otp_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:hint="@string/app_name"
+                android:inputType="number"
+                android:itemBackground="@color/grey"
+                android:textAllCaps="true"
+                app:OtpHideLineWhenFilled="true"
+                app:OtpItemCount="6"
+                app:OtpItemSpacing="6dp"
+                app:OtpLineColor="@color/green"
+                app:OtpState_filled="true"
+                app:OtpViewType="line" />
+
+            <Button
+                android:layout_width="304dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/greenDark"
+                android:text="Continue"
+                android:textSize="20sp">
+
+            </Button>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
