@@ -1,4 +1,4 @@
-package com.example.chatapp;
+package com.example.chatapp.Models;
 
 public class myUser {
     private String uid,name,phoneNumber,profileImage;
@@ -13,7 +13,7 @@ public class myUser {
     }
 
     public String getUid() {
-        return uid;
+        return uid != null ? uid : "";
     }
 
     public void setUid(String uid) {
@@ -21,7 +21,7 @@ public class myUser {
     }
 
     public String getName() {
-        return name;
+        return name != null ? name : "";
     }
 
     public void setName(String name) {
@@ -29,7 +29,7 @@ public class myUser {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phoneNumber != null ? phoneNumber : "";
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -37,7 +37,7 @@ public class myUser {
     }
 
     public String getProfileImage() {
-        return profileImage;
+        return profileImage != null ? profileImage : "";
     }
 
     public void setProfileImage(String profileImage) {
