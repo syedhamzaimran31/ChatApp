@@ -62,12 +62,14 @@ public class OTPActivity extends AppCompatActivity {
                 .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
+                        Toast.makeText(OTPActivity.this,"Verified Sucessfully",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-
+                        // Called when verification fails
+                        dialog.dismiss(); // Dismiss the progress dialog in case of failure
+                        Toast.makeText(OTPActivity.this, "Verification failed.Please try again.", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -87,6 +89,7 @@ public class OTPActivity extends AppCompatActivity {
         binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
             public void onOtpCompleted(String otp) {
+                if (verificationId != null && !verificationId.isEmpty()) {
                 PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp);
 
                 auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -101,6 +104,10 @@ public class OTPActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }else {
+                    // Handle the case where verificationId is null or empty
+                    Toast.makeText(OTPActivity.this, "Verification failed. Please try again.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
